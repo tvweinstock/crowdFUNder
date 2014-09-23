@@ -3,6 +3,8 @@ class CreateRewards < ActiveRecord::Migration
     create_table :rewards do |t|
       t.string :description
       t.integer :amount
+      t.belongs_to :project
+
 
       t.timestamps
     end
