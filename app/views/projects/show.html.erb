@@ -1,0 +1,13 @@
+<%= link_to "Back to Projects", projects_url %>
+
+<p>
+Name: <%= @project[:name]%><br />
+Description: <%= @project[:description]%><br />
+Goal: <%= @project[:goal]%><br />
+Start Date: <%= @project[:start_date]%><br />
+End Date: <%= @project[:end_date]%>  
+
+</p>
+
+<%= link_to "Back to Projects", projects_url %> | <%= link_to "Edit", edit_project_path(@project) %>
+<%= link_to 'Destroy', @project, method: :delete, date:{confirm: 'Are you sure?'}%>
