@@ -1,0 +1,15 @@
+<h1>CrowdFUNder Projects</h1>
+
+<%= link_to "New Projects", "/projects/new" %>
+
+
+<% @projects.each do |project| %>
+<p>
+Name: <%= project[:name]%><br />
+Description: <%= project[:description]%><br />
+Goal: <%= project[:goal]%><br />
+Start Date: <%= project[:start_date]%><br />
+End Date: <%= project[:end_date]%>  
+<%= link_to "Show", project %>
+</p>
+<% end %>
