@@ -13,5 +13,17 @@
 
 
 
-<%= link_to 'Edit', edit_user_path(@user) %>
+<%= link_to 'Edit Your Profile', edit_user_path(@user) %> <br>
+
+<%= link_to "Create a New Project", "/projects/new" %> <br>
+
+<h3>Your Current Projects</h3>
+
+<% current_user.owned_projects.each do |project| %>
+  <%=link_to project.name, project_path %> <br>
+  <%= project.description %> <br>
+
+<% end -%>
+
+
 
