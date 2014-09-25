@@ -7,6 +7,8 @@ class UserTest < ActiveSupport::TestCase
 	end
 
   	test "should not be able to have a password with less than 5 characters" do
+  		user = User.new
+  		
   	end
 
   	test "email should be unique" do 
