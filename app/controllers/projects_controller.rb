@@ -8,7 +8,8 @@ class ProjectsController < ApplicationController
 	end
 
 	def new
-		@project = Project.new		
+		@project = Project.new	
+		@project.rewards.new	
 	end
 
 	def create

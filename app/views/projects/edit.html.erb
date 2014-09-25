@@ -1,1 +1,16 @@
 <%= render 'form' %>
+
+<div>
+	<h3>Rewards</h3>
+	<%= fields_for :rewards do |rewards_form| %>
+		<div>
+		<%= rewards_form.label :description %>:<br />
+		<%= rewards_form.text_area :description %><br />
+
+		<%= rewards_form.label :amount %> $<br />
+		<%= rewards_form.number_field :amount %><br />
+		<%= rewards_form.submit %>
+		</div>
+	<% end %>
+
+</div>
