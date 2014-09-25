@@ -9,5 +9,17 @@ End Date: <%= @project[:end_date]%>  <br />
 Current Total: <%= @project.current_funding %>
 </p>
 
+
+Rewards: <br />	
+
+<% @project.rewards.each do |reward| %> 
+<p>
+Description: <%= reward[:description] %><br />
+Amount: <%= reward[:amount] %><br /><br />
+</p>
+<% end %>
+
+<br />
+
 <%= link_to "Back to Projects", projects_url %> | <%= link_to "Edit", edit_project_path(@project) %>
 <%= link_to 'Destroy', @project, method: :delete, date:{confirm: 'Are you sure?'}%>
