@@ -1,7 +1,8 @@
 require 'test_helper'
 
 class DonationTest < ActiveSupport::TestCase
-  test "" do
-    assert true
+  test "should not be user less" do
+    
   end
+  
 end

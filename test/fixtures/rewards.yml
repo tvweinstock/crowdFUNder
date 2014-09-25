@@ -1,9 +1,12 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  description: MyString
-  amount: 1000
+  description: Free Tee
+  amount: 250
+  project: one
+ 
 
 two:
-  description: greatest show on earth
-  amount: 100
+  description: Trip to Mars
+  amount: 300
+  project: one
