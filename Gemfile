@@ -39,6 +39,8 @@ end
 gem 'sorcery'
 # Use CanCanCan for authorization
 gem 'cancancan'
+# Use Cocoon for multi-model forms.
+gem 'cocoon'
 # Use unicorn as the app server
 # gem 'unicorn'
 
