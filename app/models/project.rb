@@ -14,9 +14,9 @@ class Project < ActiveRecord::Base
   	total
   end
 
-  def choose_reward
-    @reward = Reward.find(params[:reward])
-    current_user.donations << Donation.create(amount: @reward.amount, project_id: @project.id)
-    current_user.rewards << @reward
-  end
+  # def choose_reward
+  #   @reward = Reward.find(params[:reward])
+  #   current_user.donations << Donation.create(amount: @reward.amount, project_id: @project.id)
+  #   current_user.rewards << @reward
+  # end
 end
