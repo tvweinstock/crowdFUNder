@@ -22,8 +22,12 @@
 <% current_user.owned_projects.each do |project| %>
   <%=link_to project.name, project_path %> <br>
   <%= project.description %> <br>
-
 <% end -%>
 
+<h3>Your Backed Projects</h3>
+
+<% current_user.donations.each do |donation| %>
+  <%= @donation.amount %> <br>
+<% end -%>
 
 
