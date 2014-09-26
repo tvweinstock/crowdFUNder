@@ -5,6 +5,7 @@ class Project < ActiveRecord::Base
   belongs_to :creator, foreign_key: 'user_id', class_name: 'User'
   accepts_nested_attributes_for :rewards, allow_destroy: true
   validates :name, presence: true
+  validates :goal, presence: true
 
   def current_funding
   	total = 0
@@ -15,6 +16,6 @@ class Project < ActiveRecord::Base
   end
 
   def funding_left
-    self.goal - current_funding
+     self.goal - current_funding
   end
 end
