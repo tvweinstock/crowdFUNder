@@ -1,16 +1,9 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
-  # GET /users
-  # GET /users.json
-  def index
-    @users = User.all
-  end
-
   # GET /users/1
   # GET /users/1.json
   def show
-    @user = User.find(params[:id])
   end
 
   # GET /users/new
@@ -20,7 +13,6 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @user = User.find(params[:id])
   end
 
   # POST /users
@@ -43,9 +35,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
       user_params.delete(:password) if (user_params[:password].blank?)
-      puts 'password field deleted!'
       user_params.delete(:password_confirmation) if (user_params[:password_confirmation].blank?)
-      puts 'password confirmation deleted!'
     respond_to do |format|
       
       if @user.update(user_params)
@@ -71,7 +61,7 @@ class UsersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+      @user = current_user
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

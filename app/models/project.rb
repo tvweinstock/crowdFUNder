@@ -10,7 +10,9 @@ class Project < ActiveRecord::Base
   def current_funding
   	total = 0
   	donations.each do |donation|
-  		total += donation.amount
+      if donation.amount
+  		  total += donation.amount
+      end
   	end
   	total
   end

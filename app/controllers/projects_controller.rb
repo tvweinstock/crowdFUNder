@@ -1,6 +1,13 @@
 class ProjectsController < ApplicationController
 	def index
+		@projects = if params[:search]
+			Project.where('LOWER(name) LIKE LOWER(?)', "%#{params[:search]}")
+		else
     	@projects = Project.all
+		end
+		if request.xhr?
+			render @projects
+		end
 	end
 
 	def show
@@ -24,7 +31,7 @@ class ProjectsController < ApplicationController
 	end
 	
 	def edit
-		@project = Project.find(params[:id])
+		@project = current_user.owned_projects.find(params[:id])
 	end
 
 	def update
