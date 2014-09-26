@@ -5,12 +5,13 @@
 
 <% @projects.each do |project| %>
 <p>
-Name: <%= project[:name]%><br />
+<h3>Name: <%= project[:name]%></h3>
 Description: <%= project[:description]%><br />
 Goal: <%= project[:goal]%><br />
 Start Date: <%= project[:start_date]%><br />
 End Date: <%= project[:end_date]%> <br />
 Current Funding: $<%= project.current_funding %> <br />
+Amount Left: <%= project.funding_left %> <br>
 <%= link_to "Show", project %>
 </p>
 <% end %>

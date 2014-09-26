@@ -1,20 +1,25 @@
 <%= link_to "Back to Projects", projects_url %>
 
 <p>
-Name: <%= @project[:name]%><br />
+<h1><%= @project[:name]%></h1>
 Description: <%= @project[:description]%><br />
 Goal: <%= @project[:goal]%><br />
-Start Date: <%= @project[:start_date]%><br />
+Start Date: <%= @project.start_date%><br />
 End Date: <%= @project[:end_date]%>  <br />
-Current Total: <%= @project.current_funding %>
+Current Total: $<%= @project.current_funding %> <br>
+Amount Left: $<%= @project.funding_left %> <br>
 </p>
 
 <h3>Project Rewards</h3>
 <% @project.rewards.each do |reward| %>
 	<%= reward.description %> <br />
 	$<%= reward.amount %><br />
-	<!-- <%# link_to  "Make Donation", @project.choose_reward %> -->
+	<%= form_for reward.donations.build(:amount => reward.amount) do |f| %>
+		<%= f.hidden_field :reward_id %>
+		<%= f.hidden_field :amount %>
+		<%= f.submit "Donate!" %>
 	<% end %>
+<% end %>
 
-<%= link_to "Back to Projects", projects_url %> | <%= link_to "Edit", edit_project_path(@project) %>
+<%= link_to "Back to Projects", projects_url %> | <%= link_to "Edit", edit_project_path(@project) %> | 
 <%= link_to 'Destroy', @project, method: :delete, date:{confirm: 'Are you sure?'}%>
