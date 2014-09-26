@@ -5,6 +5,7 @@ class ProjectsController < ApplicationController
 
 	def show
 		@project = Project.find(params[:id])
+		@project.donations.new
 	end
 
 	def new
@@ -43,7 +44,7 @@ class ProjectsController < ApplicationController
 
 	private
 	def project_params
-		params.require(:project).permit(:name, :description, :goal, :start_date, :end_date)
+		params.require(:project).permit(:name, :description, :goal, :start_date, :end_date, rewards_attributes: [:id, :description, :amount, :_destroy])
 		
 	end	
 
