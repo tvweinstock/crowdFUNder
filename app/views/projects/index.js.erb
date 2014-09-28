@@ -1,0 +1,5 @@
+<% if params[:page] %>
+  $('#projects').append("<%= j(render @projects) %>")
+  <% else %>
+  $('#projects').html("<%= j(render @projects) %>")
+<% end %>
